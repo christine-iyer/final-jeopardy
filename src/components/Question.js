@@ -1,14 +1,14 @@
+import styles from './ComponentStyles/ComponentStyles.module.scss'
 export default function Question({ jeopardyQuest, getJeopardyQuest }) {
      return (
           <>
-          <button onClick={getJeopardyQuest}>Get a Random Trivia Question </button>
-
+          <button className ={styles.button}onClick={getJeopardyQuest}>Start</button>
+       <h1>
           {jeopardyQuest && jeopardyQuest.value ? (
-
-               <>{jeopardyQuest.question}? </>
+<>{jeopardyQuest.question}? </>
           ) : (
                <>??????</>
-          )}
+          )}</h1>
           
           </>
      );

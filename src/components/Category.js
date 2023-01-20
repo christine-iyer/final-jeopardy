@@ -1,27 +1,16 @@
 export default function Category({ jeopardyQuest }) {
-
-
+     
      return (
-          <div>
-               {/* <button
-               onClick={() => {
-                    setAnswerCategory(!answerCategory)
-               }}
-               >
-               {answerCategory ? "Hide Category" : "Reveal Category"}
-               </button> */}
-               {jeopardyQuest && jeopardyQuest.question  ? (
-                    <span>category {jeopardyQuest.category.title}</span>
-                    
-               ) : (
-                    ""
-               )}
-                         </div>
-               )
-          }
+          <div className="category"><h1>Category: <span>{jeopardyQuest && jeopardyQuest.question ? (
+               <span>{jeopardyQuest.category.title}</span>
+          ) : (
+               ""
+          )}</span> </h1>
+          </div>
+     )
+}
 
 
 
 
 
-    

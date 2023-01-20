@@ -8,6 +8,57 @@ http://jservice.io/
 
 ## Make a Jeopardy Trivia App using jService!
 
+Problem Solving
+ALLLLLLL MY STUDENTS ALWAYS end up being asked at some point in the interview process how to create a Todo List with Basic CRUD capability.
+
+Creating New Todo Items
+
+Reading/Seeing Todos
+
+Updating Todos that have been created
+
+Deleting Todos off the Page
+
+This excercise provides step-by-step instructions for creating a simple React Todo List using React Hooks. It covers setting up the initial project, creating the React components and styling them, and using React Hooks to store and manipulate data. By the end, you will have a fully functional React Todo List.
+
+Set up your project: First, create a new React project using the create-react-app command. Delete src folder, and then re-create it. Add Back in index.js, App.js, styles.css
+Create a Todo component: Next, create a Todo component that will render a single todo item. This component should accept a todo object as a prop and display the todo’s text and a checkbox to mark it as complete.
+Create a TodoList component: Then, create a TodoList component that will render a list of todo items. This component should accept an array of todo objects as a prop, and loop through the array to render a Todo component for each item.
+Use React Hooks: Next, use React Hooks to store and manipulate the data with UseState
+Handle user interactions: Then, add event handlers to handle user interactions. For example, you can add an onChange handler to the checkbox to mark a todo as complete.
+Add new todos: Add an input to the TodoList component so users can add new todos. This input should update the state when the user types enter.
+Filter todos: Add a filter option to the TodoList component so users can filter todos by completed or incompleted.
+Add persistence: To persist the data, you can use local storage. Add a function to save and retrieve the todos from local storage.
+Add Delete Functionality to the Todo List
+Add styling: Now, add some basic styling to the components.
+Test and debug: Finally, test and debug the app to make sure everything is working correctly.
+By following these steps, we will have a fully functional React Todo List.
+
+In each file lets brainstorm it's purpose
+index.js
+What is the purpose of this file
+What code should be contained here?
+App.js
+What is the purpose of this file?
+What code should be contained here?
+styles.css
+What is the purpose of this file?
+What code should be contained here?
+Todo.js
+What is the purpose of this file?
+What code should be contained here?
+TodoList.js
+What is the purpose of this file?
+What code should be contained here?
+Diagram
+
+Google Draw Diagram
+
+Now That We Have A Game Plan
+
+![](Screen Shot 2022-12-06 at 10.24.18 PM.png)
+
+
 ### Sample Jeopardy Trivia App appearance
 
 &#9744; Make a button labeled "Random Trivia Question" or "Get Question" or something descriptive.

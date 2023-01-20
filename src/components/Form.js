@@ -18,8 +18,9 @@ export default function Form({jeopardyQuest}) {
           console.log(jeopardyQuest.answer)
         }}
       >
+        <span><h1>What is </h1>
         <input type="text" onChange={handleChange} value={userInput} />
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" /></span>
       </form>
     </div>
   );
