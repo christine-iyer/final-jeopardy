@@ -1,12 +1,12 @@
-import './styles.css'
+import styles from './components/ComponentStyles/ComponentStyles.module.scss'
 import { useState, useEffect } from "react";
 import Score from "./components/Score";
 import Question from './components/Question'
 import Answer from './components/Answer';
 import Category from './components/Category';
-import Form from './components/Form';
+import FormIntake from './components/FormIntake';
 import DecrementPoints from './components/DecrementPoints';
-import IncrementPoints from './components/IncrementPoints';
+import AnotherAnswer from './components/AnotherAnswer';
 import Reset from './components/Reset';
 
 
@@ -61,11 +61,12 @@ export default function App() {
         <h1><Category jeopardyQuest={jeopardyQuest} /></h1>
       
       <Question jeopardyQuest={jeopardyQuest} getJeopardyQuest={getJeopardyQuest} />
-      <Form jeopardyQuest={jeopardyQuest} />
+      <FormIntake jeopardyQuest={jeopardyQuest} />
       <Answer jeopardyQuest={jeopardyQuest} />
       <Score score={score} getScore={getScore} />
       <DecrementPoints score={score} getScore={getDecrementPoints} />
       {/* <Reset score={score} getScore={Reset} /> */}
+      <AnotherAnswer/>
       </section>
     </div>
   )
