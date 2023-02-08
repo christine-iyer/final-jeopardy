@@ -6,13 +6,9 @@ import Answer from './components/Answer';
 import Category from './components/Category';
 import FormIntake from './components/FormIntake';
 import DecrementPoints from './components/DecrementPoints';
-import AnotherAnswer from './components/AnotherAnswer';
-import Reset from './components/Reset';
+import Card  from 'react-bootstrap/Card';
 
-
-
-
-export default function App() {
+export default function App({userInput}) {
   //set state for for questions and scoring
   const [jeopardyQuest, setJeopardyQuest] = useState(null);
   const [score, setScore] = useState(0);
@@ -53,25 +49,59 @@ export default function App() {
     getJeopardyQuest()
     getDecrementPoints()
     getScore()
+
 }, [])
 
   return (
     <div className='App'>
       <section>
-        <h1><Category jeopardyQuest={jeopardyQuest} /></h1>
+        <Category jeopardyQuest={jeopardyQuest} />
       
-      <Question jeopardyQuest={jeopardyQuest} getJeopardyQuest={getJeopardyQuest} />
+        <Card className='SubCard'>
+<Card.Header className='SubCardHeader'>
+  <Question />
+</Card.Header>
+<Card.Body className='SubCardContainer'>
+  <Card.Text className='AboutBlurb'>
+  <Question jeopardyQuest={jeopardyQuest} getJeopardyQuest={getJeopardyQuest} />
+  </Card.Text>
+  <br />
+  <Card.Text className='SubCardDate'>
+<br />
+    </Card.Text>
+</Card.Body>
+</Card>
+      
       <FormIntake jeopardyQuest={jeopardyQuest} />
-      <Answer jeopardyQuest={jeopardyQuest} />
+      
       <Score score={score} getScore={getScore} />
-      <DecrementPoints score={score} getScore={getDecrementPoints} />
-      {/* <Reset score={score} getScore={Reset} /> */}
-      <AnotherAnswer/>
+      <DecrementPoints getScore={getDecrementPoints} />
+      <Card className='SubCard'>
+<Card.Header className='SubCardHeader'>About Community</Card.Header>
+<Card.Body className='SubCardContainer'>
+  <Card.Text className='AboutBlurb'>
+  <Answer jeopardyQuest={jeopardyQuest} userInput={userInput} />
+  </Card.Text>
+  <br />
+  <Card.Text className='SubCardDate'>
+<br />
+    </Card.Text>
+</Card.Body>
+</Card>
+
       </section>
     </div>
   )
 
 }
+
+
+
+
+
+
+
+
 
 
 

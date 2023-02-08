@@ -1,4 +1,4 @@
-export default function Reset() {
+export default function Reset({score}) {
      return (
        <div>
          <Reset />
