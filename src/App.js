@@ -7,13 +7,13 @@ import Category from './components/Category';
 import Votes from './components/Votes'
 import FormIntake from './components/FormIntake';
 import DecrementPoints from './components/DecrementPoints';
-import Card  from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card';
 
-export default function App({userInput}) {
+export default function App({ userInput }) {
   //set state for for questions and scoring
   const [jeopardyQuest, setJeopardyQuest] = useState(null);
   const [score, setScore] = useState(0);
- const [votes, setVotes] = useState(null);
+  const [votes, setVotes] = useState(null);
 
   const getScore = () => {
     if (jeopardyQuest && jeopardyQuest.value) {
@@ -34,9 +34,9 @@ export default function App({userInput}) {
 
   const getVotes = async () => {
 
-    
+
     try {
-      
+
       const response = await fetch('https://api.congress.gov/v3/member?api_key=ofuehXNz9DOO44FsEfoAIbeCgZPvTgDRDG14yNqD');
       const result = await response.json();
       console.log(result);
@@ -46,11 +46,11 @@ export default function App({userInput}) {
     }
   }
 
-  
 
 
-  
- 
+
+
+
 
   const getJeopardyQuest = async () => {
     try {
@@ -68,35 +68,20 @@ export default function App({userInput}) {
     getDecrementPoints()
     getScore()
 
-}, [])
+  }, [])
 
   return (
     <div className='App'>
       <section>
         <Category jeopardyQuest={jeopardyQuest} />
-      
         <Card className='SubCard'>
-
-
-
-
-  <Question jeopardyQuest={jeopardyQuest} getJeopardyQuest={getJeopardyQuest} />
-
-
-
-</Card>
-      
-      <FormIntake jeopardyQuest={jeopardyQuest} />
-      
-      <Score score={score} getScore={getScore} />
-      <DecrementPoints getScore={getDecrementPoints} />
-
-  <Answer jeopardyQuest={jeopardyQuest} userInput={userInput} />
-
-<Votes votes={votes} getVotes={getVotes}/>
-
-
-
+          <Question jeopardyQuest={jeopardyQuest} getJeopardyQuest={getJeopardyQuest} />
+        </Card>
+        <FormIntake jeopardyQuest={jeopardyQuest} />
+        <Score score={score} getScore={getScore} />
+        <DecrementPoints getScore={getDecrementPoints} />
+        <Answer jeopardyQuest={jeopardyQuest} userInput={userInput} />
+        <Votes votes={votes} getVotes={getVotes} />
       </section>
     </div>
   )
