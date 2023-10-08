@@ -12,7 +12,7 @@ export default function App({userInput}) {
   //set state for for questions and scoring
   const [jeopardyQuest, setJeopardyQuest] = useState(null);
   const [score, setScore] = useState(0);
-  // const [category, setCategory] = useState(null);
+//const [votes, setVotes] = useState(null);
 
   const getScore = () => {
     if (jeopardyQuest && jeopardyQuest.value) {
@@ -31,6 +31,26 @@ export default function App({userInput}) {
   //   }
   // }
 
+  //const getVotes = async () => {
+  //   const url = 'https://api.propublica.org/congress/v1';
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-API-Key': 'zCfZXwR6hGeZfPWuN1Up0pt8kcN7qyrH293C1tVc'
+  //     }
+  //   };
+    
+  //   try {
+  //     const response = await fetch(url, options);
+  //     const result = await response.text();
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  
+
 
   
  
@@ -46,6 +66,7 @@ export default function App({userInput}) {
     }
   }
   useEffect(() => {
+    // getVotes()
     getJeopardyQuest()
     getDecrementPoints()
     getScore()
@@ -58,36 +79,26 @@ export default function App({userInput}) {
         <Category jeopardyQuest={jeopardyQuest} />
       
         <Card className='SubCard'>
-<Card.Header className='SubCardHeader'>
-  <Question />
-</Card.Header>
-<Card.Body className='SubCardContainer'>
-  <Card.Text className='AboutBlurb'>
+
+
+
+
   <Question jeopardyQuest={jeopardyQuest} getJeopardyQuest={getJeopardyQuest} />
-  </Card.Text>
-  <br />
-  <Card.Text className='SubCardDate'>
-<br />
-    </Card.Text>
-</Card.Body>
+
+
+
 </Card>
       
       <FormIntake jeopardyQuest={jeopardyQuest} />
       
       <Score score={score} getScore={getScore} />
       <DecrementPoints getScore={getDecrementPoints} />
-      <Card className='SubCard'>
-<Card.Header className='SubCardHeader'>About Community</Card.Header>
-<Card.Body className='SubCardContainer'>
-  <Card.Text className='AboutBlurb'>
+
   <Answer jeopardyQuest={jeopardyQuest} userInput={userInput} />
-  </Card.Text>
-  <br />
-  <Card.Text className='SubCardDate'>
-<br />
-    </Card.Text>
-</Card.Body>
-</Card>
+
+
+
+
 
       </section>
     </div>
