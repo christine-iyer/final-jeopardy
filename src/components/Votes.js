@@ -1,40 +1,46 @@
-// import useState from 'react'
+// import { useState } from "react";
+// import Button from "react-bootstrap/Button";
+// import Collapse from 'react-bootstrap/Collapse';
 // import styles from './ComponentStyles/ComponentStyles.module.scss'
-// import Button from 'react-bootstrap/Button'
-// export default function VoteDisplay({ votes,getVotes }) {
-//      const [viewVote, setViewVote] = useState(false)
-//      return (
-//           <>
-//           <Button 
-//           className ={styles.button}
-//           onClick={getVotes}>Got Votes?</Button>
-//        <div>
-//           {votes && votes.value ? (
-// <>{votes}? </>
-//           ) : (
-//                <>??????</>
-//           )}</div>
-          
-//           </>
-//      );
-// }
+// export default function Answer({ jeopardyQuest }) {
+// const [answerQuestion, setAnswerQuestion] = useState(false)
+//   const [open, setOpen] = useState(false);
+//   return (
+//      <>
+//        <Button
+//          onClick={() => setOpen(!open)}
+//          aria-controls="example-collapse-text"
+//          aria-expanded={open}
+//        >
+//          click
+//        </Button>
+//        <Collapse in={open}>
+//          <div id="example-collapse-text">
+         
+//       answer {jeopardyQuest.answer}
+
+//          </div>
+//        </Collapse>
+//      </>
+//    );
+//  }
 
 import { useState } from "react";
-export default function Answer({ votes,getVotes }) {
+export default function Votes({ votes }) {
 
-     const [viewVote, viewVoteVote] = useState(false)
+     const [viewVote, setViewVote] = useState(false)
 
      return (
           <>
                <button
                onClick={() => {
-                    viewVoteVote(!viewVote)
+                    setViewVote(!viewVote)
                }}
                >
-               {viewVote ? "Hide Answer" : "Reveal Answer"}
+               {viewVote ? "Hide Vote" : "Reveal Vote"}
                </button>
-               {votes && votes.question && viewVote ? (
-                    <div> answer {votes.answer}</div>
+               {votes && votes.members && viewVote ? (
+                    <div> vote {votes.viewVote}</div>
 
                ) : (
                     ""

@@ -7,6 +7,7 @@ import Category from './components/Category';
 import Votes from './components/Votes'
 import FormIntake from './components/FormIntake';
 import DecrementPoints from './components/DecrementPoints';
+
 import Card from 'react-bootstrap/Card';
 
 export default function App({ userInput }) {
@@ -33,14 +34,12 @@ export default function App({ userInput }) {
   // }
 
   const getVotes = async () => {
-
-
     try {
-
       const response = await fetch('https://api.congress.gov/v3/member?api_key=ofuehXNz9DOO44FsEfoAIbeCgZPvTgDRDG14yNqD');
       const result = await response.json();
-      console.log(result);
-      setVotes(result.members[5])
+      console.log(result.members[15].partyName);
+      console.log(result.members[15].name);
+      setVotes(result.members[5].partyName)
     } catch (error) {
       console.error(error);
     }
