@@ -4,6 +4,7 @@ import Score from "./components/Score";
 import Question from './components/Question'
 import Answer from './components/Answer';
 import Category from './components/Category';
+import Votes from './components/Votes'
 import FormIntake from './components/FormIntake';
 import DecrementPoints from './components/DecrementPoints';
 import Card  from 'react-bootstrap/Card';
@@ -12,7 +13,7 @@ export default function App({userInput}) {
   //set state for for questions and scoring
   const [jeopardyQuest, setJeopardyQuest] = useState(null);
   const [score, setScore] = useState(0);
-//const [votes, setVotes] = useState(null);
+ const [votes, setVotes] = useState(null);
 
   const getScore = () => {
     if (jeopardyQuest && jeopardyQuest.value) {
@@ -31,23 +32,19 @@ export default function App({userInput}) {
   //   }
   // }
 
-  //const getVotes = async () => {
-  //   const url = 'https://api.propublica.org/congress/v1';
-  //   const options = {
-  //     method: 'GET',
-  //     headers: {
-  //       'X-API-Key': 'zCfZXwR6hGeZfPWuN1Up0pt8kcN7qyrH293C1tVc'
-  //     }
-  //   };
+  const getVotes = async () => {
+
     
-  //   try {
-  //     const response = await fetch(url, options);
-  //     const result = await response.text();
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+    try {
+      
+      const response = await fetch('https://api.congress.gov/v3/member?api_key=ofuehXNz9DOO44FsEfoAIbeCgZPvTgDRDG14yNqD');
+      const result = await response.json();
+      console.log(result);
+      setVotes(result.members[5])
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   
 
@@ -66,7 +63,7 @@ export default function App({userInput}) {
     }
   }
   useEffect(() => {
-    // getVotes()
+    getVotes()
     getJeopardyQuest()
     getDecrementPoints()
     getScore()
@@ -96,7 +93,7 @@ export default function App({userInput}) {
 
   <Answer jeopardyQuest={jeopardyQuest} userInput={userInput} />
 
-
+<Votes votes={votes} getVotes={getVotes}/>
 
 
 
