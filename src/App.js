@@ -37,19 +37,14 @@ export default function App({ userInput }) {
     try {
       const response = await fetch('https://api.congress.gov/v3/member?api_key=ofuehXNz9DOO44FsEfoAIbeCgZPvTgDRDG14yNqD');
       const result = await response.json();
-      console.log(result.members[15].partyName);
-      console.log(result.members[15].name);
-      setVotes(result.members[5].partyName)
+      console.log(result.toString().slice(0,2));
+      // console.log(result.members[7].name);
+      setVotes(result.toString().slice(0,10))
+      console.log(result);
     } catch (error) {
       console.error(error);
     }
   }
-
-
-
-
-
-
 
   const getJeopardyQuest = async () => {
     try {
@@ -62,10 +57,10 @@ export default function App({ userInput }) {
     }
   }
   useEffect(() => {
-    getVotes()
     getJeopardyQuest()
     getDecrementPoints()
     getScore()
+    getVotes()
 
   }, [])
 
@@ -80,7 +75,7 @@ export default function App({ userInput }) {
         <Score score={score} getScore={getScore} />
         <DecrementPoints getScore={getDecrementPoints} />
         <Answer jeopardyQuest={jeopardyQuest} userInput={userInput} />
-        <Votes votes={votes} getVotes={getVotes} />
+        <Votes votes={votes} />
       </section>
     </div>
   )
