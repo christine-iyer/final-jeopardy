@@ -14,7 +14,7 @@ export default function App({ userInput }) {
   //set state for for questions and scoring
   const [jeopardyQuest, setJeopardyQuest] = useState(null);
   const [score, setScore] = useState(0);
-  const [votes, setVotes] = useState(null);
+  const [votes, setVotes] = useState([]);
 
   const getScore = () => {
     if (jeopardyQuest && jeopardyQuest.value) {
@@ -37,9 +37,9 @@ export default function App({ userInput }) {
     try {
       const response = await fetch('https://api.congress.gov/v3/member?api_key=ofuehXNz9DOO44FsEfoAIbeCgZPvTgDRDG14yNqD');
       const result = await response.json();
-      console.log(result.toString().slice(0,2));
+      // console.log(result.toString().slice(0,2));
       // console.log(result.members[7].name);
-      setVotes(result.toString().slice(0,10))
+      setVotes(result.toString().slice(0,20))
       console.log(result);
     } catch (error) {
       console.error(error);
